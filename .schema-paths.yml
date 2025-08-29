@@ -1,0 +1,131 @@
+app_group:
+  - read:
+      path: /apps/netbox.eda.nokia.com
+      method: GET
+
+patch:
+  - update:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}
+      method: PATCH
+  - update:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}
+      method: PATCH
+
+resource_history:
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}/_revs
+      method: GET
+
+resource_list:
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1
+      method: GET
+
+resource_topology:
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}/_topology
+      method: GET
+
+status:
+  - delete:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}
+      method: DELETE
+  - delete:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}
+      method: DELETE
+
+ui_result:
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/_ui/{pathname}
+      method: GET
+
+com.nokia.eda.netbox.v1alpha1.allocation:
+  - create:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations
+      method: POST
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}
+      method: GET
+  - update:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}
+      method: PUT
+
+com.nokia.eda.netbox.v1alpha1.allocation_list:
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/allocations
+      method: GET
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations
+      method: GET
+  - delete:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations
+      method: DELETE
+
+com.nokia.eda.netbox.v1alpha1.allocation_deleted_resources:
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/_deleted
+      method: GET
+
+com.nokia.eda.netbox.v1alpha1.instance:
+  - create:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances
+      method: POST
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}
+      method: GET
+  - update:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}
+      method: PUT
+
+com.nokia.eda.netbox.v1alpha1.instance_list:
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/instances
+      method: GET
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances
+      method: GET
+  - delete:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances
+      method: DELETE
+
+com.nokia.eda.netbox.v1alpha1.instance_deleted_resources:
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/_deleted
+      method: GET
+
+totalPaths: 15
+totalSchemas: 38
+usedSchemas: 13
+unusedSchemas: 25
+unusedSchemaList:
+  - AppGroupVersion
+  - ErrorIndex
+  - ErrorItem
+  - ErrorResponse
+  - K8SPatchOp
+  - OverlayState
+  - Resource
+  - ResourceHistoryEntry
+  - StatusDetails
+  - TopoAttrMetadata
+  - TopoElemMetadata
+  - TopoLinkEndpoint
+  - TopoNodeGrouping
+  - TopoOverlayEndpoint
+  - TopoOverlayEndpointState
+  - TopoOverlayLink
+  - TopoOverlayLinkState
+  - TopoOverlayNode
+  - TopoOverlayNodeState
+  - TopoSchema
+  - Topology
+  - com.nokia.eda.netbox.v1alpha1.Allocation_DeletedResourceEntry
+  - com.nokia.eda.netbox.v1alpha1.Allocation_metadata
+  - com.nokia.eda.netbox.v1alpha1.Instance_DeletedResourceEntry
+  - com.nokia.eda.netbox.v1alpha1.Instance_metadata

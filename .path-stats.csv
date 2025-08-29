@@ -1,0 +1,26 @@
+Path,Method,Schema,Model Name,Supported,Datasource,Resource
+/apps/netbox.eda.nokia.com,GET,AppGroup,app_group,true,true,false
+/apps/netbox.eda.nokia.com/v1alpha1,GET,ResourceList,resource_list,true,true,false
+/apps/netbox.eda.nokia.com/v1alpha1/_ui/{pathname},GET,UIResult,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/allocations,GET,com.nokia.eda.netbox.v1alpha1.AllocationList,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/instances,GET,com.nokia.eda.netbox.v1alpha1.InstanceList,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations,DELETE,com.nokia.eda.netbox.v1alpha1.AllocationList,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations,GET,com.nokia.eda.netbox.v1alpha1.AllocationList,allocation_list,true,true,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations,POST,com.nokia.eda.netbox.v1alpha1.Allocation,allocation,true,false,true
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/_deleted,GET,com.nokia.eda.netbox.v1alpha1.Allocation_DeletedResources,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name},DELETE,Status,allocation,true,false,true
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name},GET,com.nokia.eda.netbox.v1alpha1.Allocation,allocation,true,true,true
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name},PATCH,Patch,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name},PUT,com.nokia.eda.netbox.v1alpha1.Allocation,allocation,true,false,true
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}/_revs,GET,ResourceHistory,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}/_topology,GET,ResourceTopology,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances,DELETE,com.nokia.eda.netbox.v1alpha1.InstanceList,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances,GET,com.nokia.eda.netbox.v1alpha1.InstanceList,instance_list,true,true,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances,POST,com.nokia.eda.netbox.v1alpha1.Instance,instance,true,false,true
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/_deleted,GET,com.nokia.eda.netbox.v1alpha1.Instance_DeletedResources,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name},DELETE,Status,instance,true,false,true
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name},GET,com.nokia.eda.netbox.v1alpha1.Instance,instance,true,true,true
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name},PATCH,Patch,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name},PUT,com.nokia.eda.netbox.v1alpha1.Instance,instance,true,false,true
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}/_revs,GET,ResourceHistory,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}/_topology,GET,ResourceTopology,,false,false,false

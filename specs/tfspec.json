@@ -1,0 +1,1847 @@
+{
+    "datasources": [
+        {
+            "name": "allocation",
+            "schema": {
+                "attributes": [
+                    {
+                        "name": "name",
+                        "string": {
+                            "computed_optional_required": "required",
+                            "description": "name of the Allocation"
+                        }
+                    },
+                    {
+                        "name": "hash",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "description": "resource content will be returned as it was at the time of this git hash"
+                        }
+                    },
+                    {
+                        "name": "namespace",
+                        "string": {
+                            "computed_optional_required": "required",
+                            "description": "the namespace scope in which to operate"
+                        }
+                    },
+                    {
+                        "name": "api_version",
+                        "string": {
+                            "computed_optional_required": "computed"
+                        }
+                    },
+                    {
+                        "name": "kind",
+                        "string": {
+                            "computed_optional_required": "computed"
+                        }
+                    },
+                    {
+                        "name": "metadata",
+                        "single_nested": {
+                            "computed_optional_required": "computed",
+                            "attributes": [
+                                {
+                                    "name": "annotations",
+                                    "map": {
+                                        "computed_optional_required": "computed",
+                                        "element_type": {
+                                            "string": {}
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "labels",
+                                    "map": {
+                                        "computed_optional_required": "computed",
+                                        "element_type": {
+                                            "string": {}
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "name",
+                                    "string": {
+                                        "computed_optional_required": "computed"
+                                    }
+                                },
+                                {
+                                    "name": "namespace",
+                                    "string": {
+                                        "computed_optional_required": "computed"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spec",
+                        "single_nested": {
+                            "computed_optional_required": "optional",
+                            "attributes": [
+                                {
+                                    "name": "description",
+                                    "string": {
+                                        "computed_optional_required": "optional",
+                                        "description": "A short description of the Allocation resource"
+                                    }
+                                },
+                                {
+                                    "name": "enabled",
+                                    "bool": {
+                                        "computed_optional_required": "optional",
+                                        "description": "If true the Allocation is enabled."
+                                    }
+                                },
+                                {
+                                    "name": "instance",
+                                    "string": {
+                                        "computed_optional_required": "optional",
+                                        "description": "Netbox instance reference"
+                                    }
+                                },
+                                {
+                                    "name": "subnet_length",
+                                    "int64": {
+                                        "computed_optional_required": "optional",
+                                        "description": "Prefix length when the type is subnet"
+                                    }
+                                },
+                                {
+                                    "name": "tags",
+                                    "list": {
+                                        "computed_optional_required": "optional",
+                                        "element_type": {
+                                            "string": {}
+                                        },
+                                        "description": "List of tags that must be included in the IPPrefix/ASNRange received from NetBox\nfor this allocation to be applied."
+                                    }
+                                },
+                                {
+                                    "name": "type",
+                                    "string": {
+                                        "computed_optional_required": "optional",
+                                        "description": "The allocation type: one of ip-address, subnet, ip-in-subnet, vlan or asn"
+                                    }
+                                }
+                            ],
+                            "description": "AllocationSpec defines the desired state of Allocation"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "single_nested": {
+                            "computed_optional_required": "computed",
+                            "attributes": [
+                                {
+                                    "name": "last_event",
+                                    "string": {
+                                        "computed_optional_required": "computed"
+                                    }
+                                },
+                                {
+                                    "name": "last_event_status",
+                                    "string": {
+                                        "computed_optional_required": "computed"
+                                    }
+                                },
+                                {
+                                    "name": "last_event_time",
+                                    "string": {
+                                        "computed_optional_required": "computed"
+                                    }
+                                },
+                                {
+                                    "name": "matched_asn_ranges",
+                                    "list_nested": {
+                                        "computed_optional_required": "computed",
+                                        "nested_object": {
+                                            "attributes": [
+                                                {
+                                                    "name": "end",
+                                                    "int64": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "id",
+                                                    "int64": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "name",
+                                                    "string": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "rir",
+                                                    "int64": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "start",
+                                                    "int64": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "tags",
+                                                    "list": {
+                                                        "computed_optional_required": "computed",
+                                                        "element_type": {
+                                                            "string": {}
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "matched_prefixes",
+                                    "list_nested": {
+                                        "computed_optional_required": "computed",
+                                        "nested_object": {
+                                            "attributes": [
+                                                {
+                                                    "name": "id",
+                                                    "int64": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "is_container",
+                                                    "bool": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "prefix",
+                                                    "string": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "tags",
+                                                    "list": {
+                                                        "computed_optional_required": "computed",
+                                                        "element_type": {
+                                                            "string": {}
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "matched_vlan_groups",
+                                    "list_nested": {
+                                        "computed_optional_required": "computed",
+                                        "nested_object": {
+                                            "attributes": [
+                                                {
+                                                    "name": "id",
+                                                    "int64": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "name",
+                                                    "string": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "ranges",
+                                                    "list_nested": {
+                                                        "computed_optional_required": "computed",
+                                                        "nested_object": {
+                                                            "attributes": [
+                                                                {
+                                                                    "name": "end",
+                                                                    "int64": {
+                                                                        "computed_optional_required": "computed"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "name": "start",
+                                                                    "int64": {
+                                                                        "computed_optional_required": "computed"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "name": "tags",
+                                                    "list": {
+                                                        "computed_optional_required": "computed",
+                                                        "element_type": {
+                                                            "string": {}
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            ],
+                            "description": "AllocationStatus defines the observed state of Allocation"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "allocation_list",
+            "schema": {
+                "attributes": [
+                    {
+                        "name": "fields",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "description": "a comma-separated list of resource fields to fetch/return.  If unspecified, all fields are fetched.  If empty, only key-fields are fetched."
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "description": "an EQL \"where\" expression that will be used to filter the set of resources returned."
+                        }
+                    },
+                    {
+                        "name": "labelselector",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "description": "a label selector string to filter the results based on CR labels"
+                        }
+                    },
+                    {
+                        "name": "namespace",
+                        "string": {
+                            "computed_optional_required": "required",
+                            "description": "the namespace scope in which to operate"
+                        }
+                    },
+                    {
+                        "name": "api_version",
+                        "string": {
+                            "computed_optional_required": "computed"
+                        }
+                    },
+                    {
+                        "name": "items",
+                        "list_nested": {
+                            "computed_optional_required": "computed",
+                            "nested_object": {
+                                "attributes": [
+                                    {
+                                        "name": "api_version",
+                                        "string": {
+                                            "computed_optional_required": "computed"
+                                        }
+                                    },
+                                    {
+                                        "name": "kind",
+                                        "string": {
+                                            "computed_optional_required": "computed"
+                                        }
+                                    },
+                                    {
+                                        "name": "metadata",
+                                        "single_nested": {
+                                            "computed_optional_required": "computed",
+                                            "attributes": [
+                                                {
+                                                    "name": "annotations",
+                                                    "map": {
+                                                        "computed_optional_required": "computed",
+                                                        "element_type": {
+                                                            "string": {}
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "name": "labels",
+                                                    "map": {
+                                                        "computed_optional_required": "computed",
+                                                        "element_type": {
+                                                            "string": {}
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "name": "name",
+                                                    "string": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "namespace",
+                                                    "string": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "spec",
+                                        "single_nested": {
+                                            "computed_optional_required": "optional",
+                                            "attributes": [
+                                                {
+                                                    "name": "description",
+                                                    "string": {
+                                                        "computed_optional_required": "optional",
+                                                        "description": "A short description of the Allocation resource"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "enabled",
+                                                    "bool": {
+                                                        "computed_optional_required": "optional",
+                                                        "description": "If true the Allocation is enabled."
+                                                    }
+                                                },
+                                                {
+                                                    "name": "instance",
+                                                    "string": {
+                                                        "computed_optional_required": "optional",
+                                                        "description": "Netbox instance reference"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "subnet_length",
+                                                    "int64": {
+                                                        "computed_optional_required": "optional",
+                                                        "description": "Prefix length when the type is subnet"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "tags",
+                                                    "list": {
+                                                        "computed_optional_required": "optional",
+                                                        "element_type": {
+                                                            "string": {}
+                                                        },
+                                                        "description": "List of tags that must be included in the IPPrefix/ASNRange received from NetBox\nfor this allocation to be applied."
+                                                    }
+                                                },
+                                                {
+                                                    "name": "type",
+                                                    "string": {
+                                                        "computed_optional_required": "optional",
+                                                        "description": "The allocation type: one of ip-address, subnet, ip-in-subnet, vlan or asn"
+                                                    }
+                                                }
+                                            ],
+                                            "description": "AllocationSpec defines the desired state of Allocation"
+                                        }
+                                    },
+                                    {
+                                        "name": "status",
+                                        "single_nested": {
+                                            "computed_optional_required": "computed",
+                                            "attributes": [
+                                                {
+                                                    "name": "last_event",
+                                                    "string": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "last_event_status",
+                                                    "string": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "last_event_time",
+                                                    "string": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "matched_asn_ranges",
+                                                    "list_nested": {
+                                                        "computed_optional_required": "computed",
+                                                        "nested_object": {
+                                                            "attributes": [
+                                                                {
+                                                                    "name": "end",
+                                                                    "int64": {
+                                                                        "computed_optional_required": "computed"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "name": "id",
+                                                                    "int64": {
+                                                                        "computed_optional_required": "computed"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "name": "name",
+                                                                    "string": {
+                                                                        "computed_optional_required": "computed"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "name": "rir",
+                                                                    "int64": {
+                                                                        "computed_optional_required": "computed"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "name": "start",
+                                                                    "int64": {
+                                                                        "computed_optional_required": "computed"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "name": "tags",
+                                                                    "list": {
+                                                                        "computed_optional_required": "computed",
+                                                                        "element_type": {
+                                                                            "string": {}
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "name": "matched_prefixes",
+                                                    "list_nested": {
+                                                        "computed_optional_required": "computed",
+                                                        "nested_object": {
+                                                            "attributes": [
+                                                                {
+                                                                    "name": "id",
+                                                                    "int64": {
+                                                                        "computed_optional_required": "computed"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "name": "is_container",
+                                                                    "bool": {
+                                                                        "computed_optional_required": "computed"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "name": "prefix",
+                                                                    "string": {
+                                                                        "computed_optional_required": "computed"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "name": "tags",
+                                                                    "list": {
+                                                                        "computed_optional_required": "computed",
+                                                                        "element_type": {
+                                                                            "string": {}
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "name": "matched_vlan_groups",
+                                                    "list_nested": {
+                                                        "computed_optional_required": "computed",
+                                                        "nested_object": {
+                                                            "attributes": [
+                                                                {
+                                                                    "name": "id",
+                                                                    "int64": {
+                                                                        "computed_optional_required": "computed"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "name": "name",
+                                                                    "string": {
+                                                                        "computed_optional_required": "computed"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "name": "ranges",
+                                                                    "list_nested": {
+                                                                        "computed_optional_required": "computed",
+                                                                        "nested_object": {
+                                                                            "attributes": [
+                                                                                {
+                                                                                    "name": "end",
+                                                                                    "int64": {
+                                                                                        "computed_optional_required": "computed"
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "name": "start",
+                                                                                    "int64": {
+                                                                                        "computed_optional_required": "computed"
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "name": "tags",
+                                                                    "list": {
+                                                                        "computed_optional_required": "computed",
+                                                                        "element_type": {
+                                                                            "string": {}
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "description": "AllocationStatus defines the observed state of Allocation"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "kind",
+                        "string": {
+                            "computed_optional_required": "computed"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "app_group",
+            "schema": {
+                "attributes": [
+                    {
+                        "name": "api_version",
+                        "string": {
+                            "computed_optional_required": "computed"
+                        }
+                    },
+                    {
+                        "name": "kind",
+                        "string": {
+                            "computed_optional_required": "computed"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "string": {
+                            "computed_optional_required": "computed"
+                        }
+                    },
+                    {
+                        "name": "preferred_version",
+                        "single_nested": {
+                            "computed_optional_required": "computed",
+                            "attributes": [
+                                {
+                                    "name": "group_version",
+                                    "string": {
+                                        "computed_optional_required": "computed"
+                                    }
+                                },
+                                {
+                                    "name": "version",
+                                    "string": {
+                                        "computed_optional_required": "computed"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "versions",
+                        "list_nested": {
+                            "computed_optional_required": "computed",
+                            "nested_object": {
+                                "attributes": [
+                                    {
+                                        "name": "group_version",
+                                        "string": {
+                                            "computed_optional_required": "computed"
+                                        }
+                                    },
+                                    {
+                                        "name": "version",
+                                        "string": {
+                                            "computed_optional_required": "computed"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "instance",
+            "schema": {
+                "attributes": [
+                    {
+                        "name": "name",
+                        "string": {
+                            "computed_optional_required": "required",
+                            "description": "name of the Instance"
+                        }
+                    },
+                    {
+                        "name": "hash",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "description": "resource content will be returned as it was at the time of this git hash"
+                        }
+                    },
+                    {
+                        "name": "namespace",
+                        "string": {
+                            "computed_optional_required": "required",
+                            "description": "the namespace scope in which to operate"
+                        }
+                    },
+                    {
+                        "name": "api_version",
+                        "string": {
+                            "computed_optional_required": "computed"
+                        }
+                    },
+                    {
+                        "name": "kind",
+                        "string": {
+                            "computed_optional_required": "computed"
+                        }
+                    },
+                    {
+                        "name": "metadata",
+                        "single_nested": {
+                            "computed_optional_required": "computed",
+                            "attributes": [
+                                {
+                                    "name": "annotations",
+                                    "map": {
+                                        "computed_optional_required": "computed",
+                                        "element_type": {
+                                            "string": {}
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "labels",
+                                    "map": {
+                                        "computed_optional_required": "computed",
+                                        "element_type": {
+                                            "string": {}
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "name",
+                                    "string": {
+                                        "computed_optional_required": "computed"
+                                    }
+                                },
+                                {
+                                    "name": "namespace",
+                                    "string": {
+                                        "computed_optional_required": "computed"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spec",
+                        "single_nested": {
+                            "computed_optional_required": "optional",
+                            "attributes": [
+                                {
+                                    "name": "api_token",
+                                    "string": {
+                                        "computed_optional_required": "optional",
+                                        "description": "Reference to a Kubernetes secret containing netbox\ncredentials.\nThe secret must define the key `apiToken`."
+                                    }
+                                },
+                                {
+                                    "name": "check_interval",
+                                    "string": {
+                                        "computed_optional_required": "optional",
+                                        "description": "Interval between NetBox instance status checks."
+                                    }
+                                },
+                                {
+                                    "name": "signature_key",
+                                    "string": {
+                                        "computed_optional_required": "optional",
+                                        "description": "Reference to a Kubernetes secret containing NetBox\nwebhook signature secret.\nSecret must define the key `signatureKey`."
+                                    }
+                                },
+                                {
+                                    "name": "sync",
+                                    "single_nested": {
+                                        "computed_optional_required": "optional",
+                                        "attributes": [
+                                            {
+                                                "name": "enabled",
+                                                "bool": {
+                                                    "computed_optional_required": "optional",
+                                                    "description": "Indicates if the sync to netbox is enabled"
+                                                }
+                                            },
+                                            {
+                                                "name": "region",
+                                                "string": {
+                                                    "computed_optional_required": "optional",
+                                                    "description": "name of the region to be associated to the site."
+                                                }
+                                            },
+                                            {
+                                                "name": "tenant",
+                                                "string": {
+                                                    "computed_optional_required": "optional",
+                                                    "description": "name of the tenant to be associated to the site."
+                                                }
+                                            }
+                                        ],
+                                        "description": "Define Sync parameters for syncing Devices and Cables to\nthe NetBox instance."
+                                    }
+                                },
+                                {
+                                    "name": "timeout",
+                                    "string": {
+                                        "computed_optional_required": "optional",
+                                        "description": "Timeout for API requests to the NetBox instance."
+                                    }
+                                },
+                                {
+                                    "name": "tls",
+                                    "single_nested": {
+                                        "computed_optional_required": "optional",
+                                        "attributes": [
+                                            {
+                                                "name": "skip_verify",
+                                                "bool": {
+                                                    "computed_optional_required": "optional",
+                                                    "description": "If true, the app will not verify the certificate returned\nby NetBox."
+                                                }
+                                            },
+                                            {
+                                                "name": "trust_bundle",
+                                                "string": {
+                                                    "computed_optional_required": "optional",
+                                                    "description": "configMap reference containing CA (key `trust-bundle.pem`)\nto validate the certificate returned by NetBox."
+                                                }
+                                            }
+                                        ],
+                                        "description": "Define TLS parameters for connecting to\nthe NetBox instance."
+                                    }
+                                },
+                                {
+                                    "name": "url",
+                                    "string": {
+                                        "computed_optional_required": "optional",
+                                        "description": "The URL of the Netbox instance."
+                                    }
+                                }
+                            ],
+                            "description": "InstanceSpec defines the desired state of Instance"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "single_nested": {
+                            "computed_optional_required": "computed",
+                            "attributes": [
+                                {
+                                    "name": "error_reason",
+                                    "string": {
+                                        "computed_optional_required": "computed",
+                                        "description": "Provides an error reason if the instance is unreachable"
+                                    }
+                                },
+                                {
+                                    "name": "last_checked",
+                                    "string": {
+                                        "computed_optional_required": "computed",
+                                        "description": "Last checked time for connectivity status"
+                                    }
+                                },
+                                {
+                                    "name": "reachable",
+                                    "bool": {
+                                        "computed_optional_required": "computed",
+                                        "description": "Indicates if the netbox instance is reachable"
+                                    }
+                                }
+                            ],
+                            "description": "InstanceStatus defines the observed state of Instance"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "instance_list",
+            "schema": {
+                "attributes": [
+                    {
+                        "name": "fields",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "description": "a comma-separated list of resource fields to fetch/return.  If unspecified, all fields are fetched.  If empty, only key-fields are fetched."
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "description": "an EQL \"where\" expression that will be used to filter the set of resources returned."
+                        }
+                    },
+                    {
+                        "name": "labelselector",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "description": "a label selector string to filter the results based on CR labels"
+                        }
+                    },
+                    {
+                        "name": "namespace",
+                        "string": {
+                            "computed_optional_required": "required",
+                            "description": "the namespace scope in which to operate"
+                        }
+                    },
+                    {
+                        "name": "api_version",
+                        "string": {
+                            "computed_optional_required": "computed"
+                        }
+                    },
+                    {
+                        "name": "items",
+                        "list_nested": {
+                            "computed_optional_required": "computed",
+                            "nested_object": {
+                                "attributes": [
+                                    {
+                                        "name": "api_version",
+                                        "string": {
+                                            "computed_optional_required": "computed"
+                                        }
+                                    },
+                                    {
+                                        "name": "kind",
+                                        "string": {
+                                            "computed_optional_required": "computed"
+                                        }
+                                    },
+                                    {
+                                        "name": "metadata",
+                                        "single_nested": {
+                                            "computed_optional_required": "computed",
+                                            "attributes": [
+                                                {
+                                                    "name": "annotations",
+                                                    "map": {
+                                                        "computed_optional_required": "computed",
+                                                        "element_type": {
+                                                            "string": {}
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "name": "labels",
+                                                    "map": {
+                                                        "computed_optional_required": "computed",
+                                                        "element_type": {
+                                                            "string": {}
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "name": "name",
+                                                    "string": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "namespace",
+                                                    "string": {
+                                                        "computed_optional_required": "computed"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "spec",
+                                        "single_nested": {
+                                            "computed_optional_required": "optional",
+                                            "attributes": [
+                                                {
+                                                    "name": "api_token",
+                                                    "string": {
+                                                        "computed_optional_required": "optional",
+                                                        "description": "Reference to a Kubernetes secret containing netbox\ncredentials.\nThe secret must define the key `apiToken`."
+                                                    }
+                                                },
+                                                {
+                                                    "name": "check_interval",
+                                                    "string": {
+                                                        "computed_optional_required": "optional",
+                                                        "description": "Interval between NetBox instance status checks."
+                                                    }
+                                                },
+                                                {
+                                                    "name": "signature_key",
+                                                    "string": {
+                                                        "computed_optional_required": "optional",
+                                                        "description": "Reference to a Kubernetes secret containing NetBox\nwebhook signature secret.\nSecret must define the key `signatureKey`."
+                                                    }
+                                                },
+                                                {
+                                                    "name": "sync",
+                                                    "single_nested": {
+                                                        "computed_optional_required": "optional",
+                                                        "attributes": [
+                                                            {
+                                                                "name": "enabled",
+                                                                "bool": {
+                                                                    "computed_optional_required": "optional",
+                                                                    "description": "Indicates if the sync to netbox is enabled"
+                                                                }
+                                                            },
+                                                            {
+                                                                "name": "region",
+                                                                "string": {
+                                                                    "computed_optional_required": "optional",
+                                                                    "description": "name of the region to be associated to the site."
+                                                                }
+                                                            },
+                                                            {
+                                                                "name": "tenant",
+                                                                "string": {
+                                                                    "computed_optional_required": "optional",
+                                                                    "description": "name of the tenant to be associated to the site."
+                                                                }
+                                                            }
+                                                        ],
+                                                        "description": "Define Sync parameters for syncing Devices and Cables to\nthe NetBox instance."
+                                                    }
+                                                },
+                                                {
+                                                    "name": "timeout",
+                                                    "string": {
+                                                        "computed_optional_required": "optional",
+                                                        "description": "Timeout for API requests to the NetBox instance."
+                                                    }
+                                                },
+                                                {
+                                                    "name": "tls",
+                                                    "single_nested": {
+                                                        "computed_optional_required": "optional",
+                                                        "attributes": [
+                                                            {
+                                                                "name": "skip_verify",
+                                                                "bool": {
+                                                                    "computed_optional_required": "optional",
+                                                                    "description": "If true, the app will not verify the certificate returned\nby NetBox."
+                                                                }
+                                                            },
+                                                            {
+                                                                "name": "trust_bundle",
+                                                                "string": {
+                                                                    "computed_optional_required": "optional",
+                                                                    "description": "configMap reference containing CA (key `trust-bundle.pem`)\nto validate the certificate returned by NetBox."
+                                                                }
+                                                            }
+                                                        ],
+                                                        "description": "Define TLS parameters for connecting to\nthe NetBox instance."
+                                                    }
+                                                },
+                                                {
+                                                    "name": "url",
+                                                    "string": {
+                                                        "computed_optional_required": "optional",
+                                                        "description": "The URL of the Netbox instance."
+                                                    }
+                                                }
+                                            ],
+                                            "description": "InstanceSpec defines the desired state of Instance"
+                                        }
+                                    },
+                                    {
+                                        "name": "status",
+                                        "single_nested": {
+                                            "computed_optional_required": "computed",
+                                            "attributes": [
+                                                {
+                                                    "name": "error_reason",
+                                                    "string": {
+                                                        "computed_optional_required": "computed",
+                                                        "description": "Provides an error reason if the instance is unreachable"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "last_checked",
+                                                    "string": {
+                                                        "computed_optional_required": "computed",
+                                                        "description": "Last checked time for connectivity status"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "reachable",
+                                                    "bool": {
+                                                        "computed_optional_required": "computed",
+                                                        "description": "Indicates if the netbox instance is reachable"
+                                                    }
+                                                }
+                                            ],
+                                            "description": "InstanceStatus defines the observed state of Instance"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "kind",
+                        "string": {
+                            "computed_optional_required": "computed"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "resource_list",
+            "schema": {
+                "attributes": [
+                    {
+                        "name": "api_version",
+                        "string": {
+                            "computed_optional_required": "computed"
+                        }
+                    },
+                    {
+                        "name": "group_version",
+                        "string": {
+                            "computed_optional_required": "computed"
+                        }
+                    },
+                    {
+                        "name": "kind",
+                        "string": {
+                            "computed_optional_required": "computed"
+                        }
+                    },
+                    {
+                        "name": "resources",
+                        "list_nested": {
+                            "computed_optional_required": "computed",
+                            "nested_object": {
+                                "attributes": [
+                                    {
+                                        "name": "kind",
+                                        "string": {
+                                            "computed_optional_required": "computed"
+                                        }
+                                    },
+                                    {
+                                        "name": "name",
+                                        "string": {
+                                            "computed_optional_required": "computed"
+                                        }
+                                    },
+                                    {
+                                        "name": "namespaced",
+                                        "bool": {
+                                            "computed_optional_required": "computed"
+                                        }
+                                    },
+                                    {
+                                        "name": "read_only",
+                                        "bool": {
+                                            "computed_optional_required": "computed"
+                                        }
+                                    },
+                                    {
+                                        "name": "singular_name",
+                                        "string": {
+                                            "computed_optional_required": "computed"
+                                        }
+                                    },
+                                    {
+                                        "name": "ui_category",
+                                        "string": {
+                                            "computed_optional_required": "computed"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "provider": {
+        "name": "netbox"
+    },
+    "resources": [
+        {
+            "name": "allocation",
+            "schema": {
+                "attributes": [
+                    {
+                        "name": "api_version",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "default": {
+                                "static": "netbox.eda.nokia.com/v1alpha1"
+                            },
+                            "validators": [
+                                {
+                                    "custom": {
+                                        "imports": [
+                                            {
+                                                "path": "regexp"
+                                            },
+                                            {
+                                                "path": "github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+                                            }
+                                        ],
+                                        "schema_definition": "stringvalidator.RegexMatches(regexp.MustCompile(\"^netbox\\\\.eda\\\\.nokia\\\\.com/v1alpha1$\"), \"\")"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "kind",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "default": {
+                                "static": "Allocation"
+                            },
+                            "validators": [
+                                {
+                                    "custom": {
+                                        "imports": [
+                                            {
+                                                "path": "regexp"
+                                            },
+                                            {
+                                                "path": "github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+                                            }
+                                        ],
+                                        "schema_definition": "stringvalidator.RegexMatches(regexp.MustCompile(\"^Allocation$\"), \"\")"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "metadata",
+                        "single_nested": {
+                            "computed_optional_required": "required",
+                            "attributes": [
+                                {
+                                    "name": "annotations",
+                                    "map": {
+                                        "computed_optional_required": "computed_optional",
+                                        "element_type": {
+                                            "string": {}
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "labels",
+                                    "map": {
+                                        "computed_optional_required": "computed_optional",
+                                        "element_type": {
+                                            "string": {}
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "name",
+                                    "string": {
+                                        "computed_optional_required": "required",
+                                        "validators": [
+                                            {
+                                                "custom": {
+                                                    "imports": [
+                                                        {
+                                                            "path": "github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+                                                        }
+                                                    ],
+                                                    "schema_definition": "stringvalidator.LengthAtMost(253)"
+                                                }
+                                            },
+                                            {
+                                                "custom": {
+                                                    "imports": [
+                                                        {
+                                                            "path": "regexp"
+                                                        },
+                                                        {
+                                                            "path": "github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+                                                        }
+                                                    ],
+                                                    "schema_definition": "stringvalidator.RegexMatches(regexp.MustCompile(\"^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$\"), \"\")"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "namespace",
+                                    "string": {
+                                        "computed_optional_required": "required"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spec",
+                        "single_nested": {
+                            "computed_optional_required": "required",
+                            "attributes": [
+                                {
+                                    "name": "description",
+                                    "string": {
+                                        "computed_optional_required": "optional",
+                                        "description": "A short description of the Allocation resource"
+                                    }
+                                },
+                                {
+                                    "name": "enabled",
+                                    "bool": {
+                                        "computed_optional_required": "computed_optional",
+                                        "default": {
+                                            "static": true
+                                        },
+                                        "description": "If true the Allocation is enabled."
+                                    }
+                                },
+                                {
+                                    "name": "instance",
+                                    "string": {
+                                        "computed_optional_required": "required",
+                                        "description": "Netbox instance reference"
+                                    }
+                                },
+                                {
+                                    "name": "subnet_length",
+                                    "int64": {
+                                        "computed_optional_required": "optional",
+                                        "description": "Prefix length when the type is subnet"
+                                    }
+                                },
+                                {
+                                    "name": "tags",
+                                    "list": {
+                                        "computed_optional_required": "optional",
+                                        "element_type": {
+                                            "string": {}
+                                        },
+                                        "description": "List of tags that must be included in the IPPrefix/ASNRange received from NetBox\nfor this allocation to be applied."
+                                    }
+                                },
+                                {
+                                    "name": "type",
+                                    "string": {
+                                        "computed_optional_required": "optional",
+                                        "description": "The allocation type: one of ip-address, subnet, ip-in-subnet, vlan or asn",
+                                        "validators": [
+                                            {
+                                                "custom": {
+                                                    "imports": [
+                                                        {
+                                                            "path": "github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+                                                        }
+                                                    ],
+                                                    "schema_definition": "stringvalidator.OneOf(\n\"ip-address\",\n\"subnet\",\n\"ip-in-subnet\",\n\"asn\",\n\"vlan\",\n)"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ],
+                            "description": "AllocationSpec defines the desired state of Allocation"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "single_nested": {
+                            "computed_optional_required": "computed_optional",
+                            "attributes": [
+                                {
+                                    "name": "last_event",
+                                    "string": {
+                                        "computed_optional_required": "computed_optional"
+                                    }
+                                },
+                                {
+                                    "name": "last_event_status",
+                                    "string": {
+                                        "computed_optional_required": "computed_optional"
+                                    }
+                                },
+                                {
+                                    "name": "last_event_time",
+                                    "string": {
+                                        "computed_optional_required": "computed_optional"
+                                    }
+                                },
+                                {
+                                    "name": "matched_asn_ranges",
+                                    "list_nested": {
+                                        "computed_optional_required": "computed_optional",
+                                        "nested_object": {
+                                            "attributes": [
+                                                {
+                                                    "name": "end",
+                                                    "int64": {
+                                                        "computed_optional_required": "computed_optional"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "id",
+                                                    "int64": {
+                                                        "computed_optional_required": "computed_optional"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "name",
+                                                    "string": {
+                                                        "computed_optional_required": "computed_optional"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "rir",
+                                                    "int64": {
+                                                        "computed_optional_required": "computed_optional"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "start",
+                                                    "int64": {
+                                                        "computed_optional_required": "computed_optional"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "tags",
+                                                    "list": {
+                                                        "computed_optional_required": "computed_optional",
+                                                        "element_type": {
+                                                            "string": {}
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "matched_prefixes",
+                                    "list_nested": {
+                                        "computed_optional_required": "computed_optional",
+                                        "nested_object": {
+                                            "attributes": [
+                                                {
+                                                    "name": "id",
+                                                    "int64": {
+                                                        "computed_optional_required": "computed_optional"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "is_container",
+                                                    "bool": {
+                                                        "computed_optional_required": "computed_optional"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "prefix",
+                                                    "string": {
+                                                        "computed_optional_required": "computed_optional"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "tags",
+                                                    "list": {
+                                                        "computed_optional_required": "computed_optional",
+                                                        "element_type": {
+                                                            "string": {}
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "matched_vlan_groups",
+                                    "list_nested": {
+                                        "computed_optional_required": "computed_optional",
+                                        "nested_object": {
+                                            "attributes": [
+                                                {
+                                                    "name": "id",
+                                                    "int64": {
+                                                        "computed_optional_required": "computed_optional"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "name",
+                                                    "string": {
+                                                        "computed_optional_required": "computed_optional"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "ranges",
+                                                    "list_nested": {
+                                                        "computed_optional_required": "computed_optional",
+                                                        "nested_object": {
+                                                            "attributes": [
+                                                                {
+                                                                    "name": "end",
+                                                                    "int64": {
+                                                                        "computed_optional_required": "computed_optional"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "name": "start",
+                                                                    "int64": {
+                                                                        "computed_optional_required": "computed_optional"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "name": "tags",
+                                                    "list": {
+                                                        "computed_optional_required": "computed_optional",
+                                                        "element_type": {
+                                                            "string": {}
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            ],
+                            "description": "AllocationStatus defines the observed state of Allocation"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "description": "name of the Allocation"
+                        }
+                    },
+                    {
+                        "name": "namespace",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "description": "the namespace scope in which to operate"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "instance",
+            "schema": {
+                "attributes": [
+                    {
+                        "name": "api_version",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "default": {
+                                "static": "netbox.eda.nokia.com/v1alpha1"
+                            },
+                            "validators": [
+                                {
+                                    "custom": {
+                                        "imports": [
+                                            {
+                                                "path": "regexp"
+                                            },
+                                            {
+                                                "path": "github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+                                            }
+                                        ],
+                                        "schema_definition": "stringvalidator.RegexMatches(regexp.MustCompile(\"^netbox\\\\.eda\\\\.nokia\\\\.com/v1alpha1$\"), \"\")"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "kind",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "default": {
+                                "static": "Instance"
+                            },
+                            "validators": [
+                                {
+                                    "custom": {
+                                        "imports": [
+                                            {
+                                                "path": "regexp"
+                                            },
+                                            {
+                                                "path": "github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+                                            }
+                                        ],
+                                        "schema_definition": "stringvalidator.RegexMatches(regexp.MustCompile(\"^Instance$\"), \"\")"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "metadata",
+                        "single_nested": {
+                            "computed_optional_required": "required",
+                            "attributes": [
+                                {
+                                    "name": "annotations",
+                                    "map": {
+                                        "computed_optional_required": "computed_optional",
+                                        "element_type": {
+                                            "string": {}
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "labels",
+                                    "map": {
+                                        "computed_optional_required": "computed_optional",
+                                        "element_type": {
+                                            "string": {}
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "name",
+                                    "string": {
+                                        "computed_optional_required": "required",
+                                        "validators": [
+                                            {
+                                                "custom": {
+                                                    "imports": [
+                                                        {
+                                                            "path": "github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+                                                        }
+                                                    ],
+                                                    "schema_definition": "stringvalidator.LengthAtMost(253)"
+                                                }
+                                            },
+                                            {
+                                                "custom": {
+                                                    "imports": [
+                                                        {
+                                                            "path": "regexp"
+                                                        },
+                                                        {
+                                                            "path": "github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+                                                        }
+                                                    ],
+                                                    "schema_definition": "stringvalidator.RegexMatches(regexp.MustCompile(\"^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$\"), \"\")"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "namespace",
+                                    "string": {
+                                        "computed_optional_required": "required"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spec",
+                        "single_nested": {
+                            "computed_optional_required": "required",
+                            "attributes": [
+                                {
+                                    "name": "api_token",
+                                    "string": {
+                                        "computed_optional_required": "required",
+                                        "description": "Reference to a Kubernetes secret containing netbox\ncredentials.\nThe secret must define the key `apiToken`."
+                                    }
+                                },
+                                {
+                                    "name": "check_interval",
+                                    "string": {
+                                        "computed_optional_required": "computed_optional",
+                                        "default": {
+                                            "static": "1m"
+                                        },
+                                        "description": "Interval between NetBox instance status checks."
+                                    }
+                                },
+                                {
+                                    "name": "signature_key",
+                                    "string": {
+                                        "computed_optional_required": "required",
+                                        "description": "Reference to a Kubernetes secret containing NetBox\nwebhook signature secret.\nSecret must define the key `signatureKey`."
+                                    }
+                                },
+                                {
+                                    "name": "sync",
+                                    "single_nested": {
+                                        "computed_optional_required": "optional",
+                                        "attributes": [
+                                            {
+                                                "name": "enabled",
+                                                "bool": {
+                                                    "computed_optional_required": "computed_optional",
+                                                    "default": {
+                                                        "static": false
+                                                    },
+                                                    "description": "Indicates if the sync to netbox is enabled"
+                                                }
+                                            },
+                                            {
+                                                "name": "region",
+                                                "string": {
+                                                    "computed_optional_required": "optional",
+                                                    "description": "name of the region to be associated to the site."
+                                                }
+                                            },
+                                            {
+                                                "name": "tenant",
+                                                "string": {
+                                                    "computed_optional_required": "optional",
+                                                    "description": "name of the tenant to be associated to the site."
+                                                }
+                                            }
+                                        ],
+                                        "description": "Define Sync parameters for syncing Devices and Cables to\nthe NetBox instance."
+                                    }
+                                },
+                                {
+                                    "name": "timeout",
+                                    "string": {
+                                        "computed_optional_required": "computed_optional",
+                                        "default": {
+                                            "static": "10s"
+                                        },
+                                        "description": "Timeout for API requests to the NetBox instance."
+                                    }
+                                },
+                                {
+                                    "name": "tls",
+                                    "single_nested": {
+                                        "computed_optional_required": "optional",
+                                        "attributes": [
+                                            {
+                                                "name": "skip_verify",
+                                                "bool": {
+                                                    "computed_optional_required": "optional",
+                                                    "description": "If true, the app will not verify the certificate returned\nby NetBox."
+                                                }
+                                            },
+                                            {
+                                                "name": "trust_bundle",
+                                                "string": {
+                                                    "computed_optional_required": "optional",
+                                                    "description": "configMap reference containing CA (key `trust-bundle.pem`)\nto validate the certificate returned by NetBox."
+                                                }
+                                            }
+                                        ],
+                                        "description": "Define TLS parameters for connecting to\nthe NetBox instance."
+                                    }
+                                },
+                                {
+                                    "name": "url",
+                                    "string": {
+                                        "computed_optional_required": "required",
+                                        "description": "The URL of the Netbox instance."
+                                    }
+                                }
+                            ],
+                            "description": "InstanceSpec defines the desired state of Instance"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "single_nested": {
+                            "computed_optional_required": "computed_optional",
+                            "attributes": [
+                                {
+                                    "name": "error_reason",
+                                    "string": {
+                                        "computed_optional_required": "computed_optional",
+                                        "description": "Provides an error reason if the instance is unreachable"
+                                    }
+                                },
+                                {
+                                    "name": "last_checked",
+                                    "string": {
+                                        "computed_optional_required": "computed_optional",
+                                        "description": "Last checked time for connectivity status"
+                                    }
+                                },
+                                {
+                                    "name": "reachable",
+                                    "bool": {
+                                        "computed_optional_required": "computed_optional",
+                                        "description": "Indicates if the netbox instance is reachable"
+                                    }
+                                }
+                            ],
+                            "description": "InstanceStatus defines the observed state of Instance"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "description": "name of the Instance"
+                        }
+                    },
+                    {
+                        "name": "namespace",
+                        "string": {
+                            "computed_optional_required": "computed_optional",
+                            "description": "the namespace scope in which to operate"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "version": "0.1"
+}

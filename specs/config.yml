@@ -1,0 +1,62 @@
+provider:
+  name: netbox
+
+data_sources:
+  allocation:
+    read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}
+      method: GET
+
+  allocation_list:
+    read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations
+      method: GET
+
+  app_group:
+    read:
+      path: /apps/netbox.eda.nokia.com
+      method: GET
+
+  instance:
+    read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}
+      method: GET
+
+  instance_list:
+    read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances
+      method: GET
+
+  resource_list:
+    read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1
+      method: GET
+
+resources:
+  allocation:
+    create:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations
+      method: POST
+    read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}
+      method: GET
+    update:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}
+      method: PUT
+    delete:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}
+      method: DELETE
+
+  instance:
+    create:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances
+      method: POST
+    read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}
+      method: GET
+    update:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}
+      method: PUT
+    delete:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}
+      method: DELETE
