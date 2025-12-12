@@ -22,7 +22,9 @@ description: |-
 
 ### Optional
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `name` (String) name of the Instance
 - `namespace` (String) the namespace scope in which to operate
@@ -47,17 +49,18 @@ Optional:
 
 Required:
 
-- `api_token` (String) Reference to a Kubernetes secret containing netbox
-credentials.
-The secret must define the key `apiToken`.
-- `signature_key` (String) Reference to a Kubernetes secret containing NetBox
-webhook signature secret.
-Secret must define the key `signatureKey`.
 - `url` (String) The URL of the Netbox instance.
 
 Optional:
 
+- `api_token` (String) Reference to a Kubernetes secret containing netbox
+credentials.
+The secret must define the key `apiToken`.
 - `check_interval` (String) Interval between NetBox instance status checks.
+- `disable_webhook` (Boolean) If true, the instance will not reconcile the related allocations based on received NetBox webhooks.
+- `signature_key` (String) Reference to a Kubernetes secret containing NetBox
+webhook signature secret. Required if webhook is enabled.
+Secret must define the key `signatureKey`.
 - `sync` (Attributes) Define Sync parameters for syncing Devices and Cables to
 the NetBox instance. (see [below for nested schema](#nestedatt--spec--sync))
 - `timeout` (String) Timeout for API requests to the NetBox instance.
@@ -84,6 +87,25 @@ by NetBox.
 - `trust_bundle` (String) configMap reference containing CA (key `trust-bundle.pem`)
 to validate the certificate returned by NetBox.
 
+
+
+<a id="nestedatt--alarms"></a>
+### Nested Schema for `alarms`
+
+Optional:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--deviations"></a>
+### Nested Schema for `deviations`
+
+Optional:
+
+- `count` (Number)
 
 
 <a id="nestedatt--status"></a>

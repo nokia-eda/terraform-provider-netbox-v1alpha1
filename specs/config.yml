@@ -17,6 +17,16 @@ data_sources:
       path: /apps/netbox.eda.nokia.com
       method: GET
 
+  apply_allocation:
+    read:
+      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations/{name}
+      method: GET
+
+  apply_allocation_list:
+    read:
+      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations
+      method: GET
+
   instance:
     read:
       path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}
@@ -32,6 +42,11 @@ data_sources:
       path: /apps/netbox.eda.nokia.com/v1alpha1
       method: GET
 
+  workflow_get_inputs_resp_elem:
+    read:
+      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations/{name}/_input
+      method: GET
+
 resources:
   allocation:
     create:
@@ -45,6 +60,17 @@ resources:
       method: PUT
     delete:
       path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}
+      method: DELETE
+
+  apply_allocation:
+    create:
+      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations
+      method: POST
+    read:
+      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations/{name}
+      method: GET
+    delete:
+      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations/{name}
       method: DELETE
 
   instance:

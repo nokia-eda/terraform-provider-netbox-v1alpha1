@@ -24,6 +24,7 @@ description: |-
 - `fields` (String) a comma-separated list of resource fields to fetch/return.  If unspecified, all fields are fetched.  If empty, only key-fields are fetched.
 - `filter` (String) an EQL "where" expression that will be used to filter the set of resources returned.
 - `label_selector` (String) a label selector string to filter the results based on CR labels
+- `labelselector` (String) Deprecated: a label selector string to filter the results based on CR labels
 
 ### Read-Only
 
@@ -40,7 +41,9 @@ Optional:
 
 Read-Only:
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--items--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--items--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--items--metadata))
 - `status` (Attributes) InstanceStatus defines the observed state of Instance (see [below for nested schema](#nestedatt--items--status))
@@ -54,8 +57,9 @@ Optional:
 credentials.
 The secret must define the key `apiToken`.
 - `check_interval` (String) Interval between NetBox instance status checks.
+- `disable_webhook` (Boolean) If true, the instance will not reconcile the related allocations based on received NetBox webhooks.
 - `signature_key` (String) Reference to a Kubernetes secret containing NetBox
-webhook signature secret.
+webhook signature secret. Required if webhook is enabled.
 Secret must define the key `signatureKey`.
 - `sync` (Attributes) Define Sync parameters for syncing Devices and Cables to
 the NetBox instance. (see [below for nested schema](#nestedatt--items--spec--sync))
@@ -84,6 +88,25 @@ by NetBox.
 - `trust_bundle` (String) configMap reference containing CA (key `trust-bundle.pem`)
 to validate the certificate returned by NetBox.
 
+
+
+<a id="nestedatt--items--alarms"></a>
+### Nested Schema for `items.alarms`
+
+Read-Only:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--items--deviations"></a>
+### Nested Schema for `items.deviations`
+
+Read-Only:
+
+- `count` (Number)
 
 
 <a id="nestedatt--items--metadata"></a>

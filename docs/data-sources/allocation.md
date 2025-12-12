@@ -27,7 +27,9 @@ description: |-
 
 ### Read-Only
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--metadata))
 - `status` (Attributes) AllocationStatus defines the observed state of Allocation (see [below for nested schema](#nestedatt--status))
@@ -44,6 +46,25 @@ Optional:
 - `tags` (List of String) List of tags that must be included in the IPPrefix/ASNRange received from NetBox
 for this allocation to be applied.
 - `type` (String) The allocation type: one of ip-address, subnet, ip-in-subnet, vlan or asn
+
+
+<a id="nestedatt--alarms"></a>
+### Nested Schema for `alarms`
+
+Read-Only:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--deviations"></a>
+### Nested Schema for `deviations`
+
+Read-Only:
+
+- `count` (Number)
 
 
 <a id="nestedatt--metadata"></a>

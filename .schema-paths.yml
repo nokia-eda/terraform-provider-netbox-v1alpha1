@@ -3,6 +3,22 @@ app_group:
       path: /apps/netbox.eda.nokia.com
       method: GET
 
+intent_targets:
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}/_targets
+      method: GET
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}/_targets
+      method: GET
+
+k8_s_topology_request:
+  - create:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}/_topology
+      method: POST
+  - create:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}/_topology
+      method: POST
+
 patch:
   - update:
       path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}
@@ -45,6 +61,16 @@ ui_result:
       path: /apps/netbox.eda.nokia.com/v1alpha1/_ui/{pathname}
       method: GET
 
+workflow_get_inputs_resp_elem:
+  - read:
+      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations/{name}/_input
+      method: GET
+
+workflow_input_data:
+  - update:
+      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations/{name}/_input
+      method: PUT
+
 com.nokia.eda.netbox.v1alpha1.allocation:
   - create:
       path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations
@@ -70,6 +96,22 @@ com.nokia.eda.netbox.v1alpha1.allocation_list:
 com.nokia.eda.netbox.v1alpha1.allocation_deleted_resources:
   - read:
       path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/_deleted
+      method: GET
+
+com.nokia.eda.netbox.v1alpha1.apply_allocation:
+  - create:
+      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations
+      method: POST
+  - read:
+      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations/{name}
+      method: GET
+
+com.nokia.eda.netbox.v1alpha1.apply_allocation_list:
+  - read:
+      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/applyallocations
+      method: GET
+  - read:
+      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations
       method: GET
 
 com.nokia.eda.netbox.v1alpha1.instance:
@@ -99,33 +141,59 @@ com.nokia.eda.netbox.v1alpha1.instance_deleted_resources:
       path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/_deleted
       method: GET
 
-totalPaths: 15
-totalSchemas: 38
-usedSchemas: 13
-unusedSchemas: 25
+totalPaths: 25
+totalSchemas: 70
+usedSchemas: 19
+unusedSchemas: 51
 unusedSchemaList:
   - AppGroupVersion
   - ErrorIndex
   - ErrorItem
   - ErrorResponse
+  - IntentTarget
   - K8SPatchOp
   - OverlayState
   - Resource
   - ResourceHistoryEntry
   - StatusDetails
   - TopoAttrMetadata
+  - TopoAttribute
+  - TopoBoolExpression
+  - TopoBoolLiteral
   - TopoElemMetadata
-  - TopoLinkEndpoint
+  - TopoEndpointBoolExpression
+  - TopoField
+  - TopoFixedBoolExpression
+  - TopoLabelSelector
+  - TopoLiteralStatusOrBadge
+  - TopoLiteralValue
+  - TopoLogicalExpression
   - TopoNodeGrouping
   - TopoOverlayEndpoint
   - TopoOverlayEndpointState
   - TopoOverlayLink
+  - TopoOverlayLinkGroup
+  - TopoOverlayLinkGroupEndpoint
   - TopoOverlayLinkState
   - TopoOverlayNode
+  - TopoOverlayNodeOrGroup
   - TopoOverlayNodeState
+  - TopoOverlayValue
   - TopoSchema
+  - TopoStateFilter
+  - TopoValue
+  - TopoValueExpression
   - Topology
+  - WorkflowIdentifier
+  - WorkflowInputDataElem
   - com.nokia.eda.netbox.v1alpha1.Allocation_DeletedResourceEntry
+  - com.nokia.eda.netbox.v1alpha1.Allocation_alarms
+  - com.nokia.eda.netbox.v1alpha1.Allocation_deviations
   - com.nokia.eda.netbox.v1alpha1.Allocation_metadata
+  - com.nokia.eda.netbox.v1alpha1.ApplyAllocation_alarms
+  - com.nokia.eda.netbox.v1alpha1.ApplyAllocation_deviations
+  - com.nokia.eda.netbox.v1alpha1.ApplyAllocation_metadata
   - com.nokia.eda.netbox.v1alpha1.Instance_DeletedResourceEntry
+  - com.nokia.eda.netbox.v1alpha1.Instance_alarms
+  - com.nokia.eda.netbox.v1alpha1.Instance_deviations
   - com.nokia.eda.netbox.v1alpha1.Instance_metadata
