@@ -10,7 +10,7 @@ Path,Method,Schema,Model Name,Supported,Datasource,Resource
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/_deleted,GET,com.nokia.eda.netbox.v1alpha1.Allocation_DeletedResources,,false,false,false
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name},DELETE,Status,allocation,true,false,true
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name},GET,com.nokia.eda.netbox.v1alpha1.Allocation,allocation,true,true,true
-/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name},PATCH,Patch,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name},PATCH,com.nokia.eda.netbox.v1alpha1.Allocation,,false,false,false
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name},PUT,com.nokia.eda.netbox.v1alpha1.Allocation,allocation,true,false,true
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}/_revs,GET,ResourceHistory,,false,false,false
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}/_targets,GET,IntentTargets,,false,false,false
@@ -22,7 +22,7 @@ Path,Method,Schema,Model Name,Supported,Datasource,Resource
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/_deleted,GET,com.nokia.eda.netbox.v1alpha1.Instance_DeletedResources,,false,false,false
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name},DELETE,Status,instance,true,false,true
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name},GET,com.nokia.eda.netbox.v1alpha1.Instance,instance,true,true,true
-/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name},PATCH,Patch,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name},PATCH,com.nokia.eda.netbox.v1alpha1.Instance,,false,false,false
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name},PUT,com.nokia.eda.netbox.v1alpha1.Instance,instance,true,false,true
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}/_revs,GET,ResourceHistory,,false,false,false
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}/_targets,GET,IntentTargets,,false,false,false
