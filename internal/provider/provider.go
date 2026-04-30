@@ -256,8 +256,6 @@ func (p *netboxProvider) DataSources(ctx context.Context) []func() datasource.Da
 		NewAppGroupDataSource,
 		NewApplyAllocationDataSource,
 		NewApplyAllocationListDataSource,
-		NewApplyTopologyDataSource,
-		NewApplyTopologyListDataSource,
 		NewInstanceDataSource,
 		NewInstanceListDataSource,
 		NewResourceListDataSource,
@@ -269,7 +267,6 @@ func (p *netboxProvider) Resources(ctx context.Context) []func() resource.Resour
 	return []func() resource.Resource{
 		NewAllocationResource,
 		NewApplyAllocationResource,
-		NewApplyTopologyResource,
 		NewInstanceResource,
 	}
 }

@@ -27,16 +27,6 @@ data_sources:
       path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations
       method: GET
 
-  apply_topology:
-    read:
-      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies/{name}
-      method: GET
-
-  apply_topology_list:
-    read:
-      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies
-      method: GET
-
   instance:
     read:
       path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}
@@ -81,17 +71,6 @@ resources:
       method: GET
     delete:
       path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations/{name}
-      method: DELETE
-
-  apply_topology:
-    create:
-      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies
-      method: POST
-    read:
-      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies/{name}
-      method: GET
-    delete:
-      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies/{name}
       method: DELETE
 
   instance:

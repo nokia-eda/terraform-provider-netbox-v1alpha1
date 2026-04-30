@@ -32,6 +32,14 @@ resource_list:
       path: /apps/netbox.eda.nokia.com/v1alpha1
       method: GET
 
+resource_topology:
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}/_topology
+      method: GET
+
 status:
   - delete:
       path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}
@@ -49,16 +57,10 @@ workflow_get_inputs_resp_elem:
   - read:
       path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations/{name}/_input
       method: GET
-  - read:
-      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies/{name}/_input
-      method: GET
 
 workflow_input_data:
   - update:
       path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations/{name}/_input
-      method: PUT
-  - update:
-      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies/{name}/_input
       method: PUT
 
 com.nokia.eda.netbox.v1alpha1.allocation:
@@ -107,22 +109,6 @@ com.nokia.eda.netbox.v1alpha1.apply_allocation_list:
       path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations
       method: GET
 
-com.nokia.eda.netbox.v1alpha1.apply_topology:
-  - create:
-      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies
-      method: POST
-  - read:
-      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies/{name}
-      method: GET
-
-com.nokia.eda.netbox.v1alpha1.apply_topology_list:
-  - read:
-      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/applytopologies
-      method: GET
-  - read:
-      path: /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies
-      method: GET
-
 com.nokia.eda.netbox.v1alpha1.instance:
   - create:
       path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances
@@ -153,12 +139,14 @@ com.nokia.eda.netbox.v1alpha1.instance_deleted_resources:
       path: /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/_deleted
       method: GET
 
-totalPaths: 33
-totalSchemas: 73
-usedSchemas: 19
-unusedSchemas: 54
+totalPaths: 25
+totalSchemas: 70
+usedSchemas: 18
+unusedSchemas: 52
 unusedSchemaList:
   - AppGroupVersion
+  - ErrorIndex
+  - ErrorItem
   - ErrorResponse
   - IntentTarget
   - K8SPatchOp
@@ -166,7 +154,6 @@ unusedSchemaList:
   - Patch
   - Resource
   - ResourceHistoryEntry
-  - ResourceTopology
   - StatusDetails
   - TopoAttrMetadata
   - TopoAttribute
@@ -205,9 +192,6 @@ unusedSchemaList:
   - com.nokia.eda.netbox.v1alpha1.ApplyAllocation_alarms
   - com.nokia.eda.netbox.v1alpha1.ApplyAllocation_deviations
   - com.nokia.eda.netbox.v1alpha1.ApplyAllocation_metadata
-  - com.nokia.eda.netbox.v1alpha1.ApplyTopology_alarms
-  - com.nokia.eda.netbox.v1alpha1.ApplyTopology_deviations
-  - com.nokia.eda.netbox.v1alpha1.ApplyTopology_metadata
   - com.nokia.eda.netbox.v1alpha1.Instance_DeletedResourceEntry
   - com.nokia.eda.netbox.v1alpha1.Instance_alarms
   - com.nokia.eda.netbox.v1alpha1.Instance_deviations

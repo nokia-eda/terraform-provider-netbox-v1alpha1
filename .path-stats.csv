@@ -14,6 +14,7 @@ Path,Method,Schema,Model Name,Supported,Datasource,Resource
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name},PUT,com.nokia.eda.netbox.v1alpha1.Allocation,allocation,true,false,true
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}/_revs,GET,ResourceHistory,,false,false,false
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}/_targets,GET,IntentTargets,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}/_topology,GET,ResourceTopology,,false,false,false
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/allocations/{name}/_topology,POST,K8STopologyRequest,,false,false,false
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances,DELETE,com.nokia.eda.netbox.v1alpha1.InstanceList,,false,false,false
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances,GET,com.nokia.eda.netbox.v1alpha1.InstanceList,instance_list,true,true,false
@@ -25,9 +26,9 @@ Path,Method,Schema,Model Name,Supported,Datasource,Resource
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name},PUT,com.nokia.eda.netbox.v1alpha1.Instance,instance,true,false,true
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}/_revs,GET,ResourceHistory,,false,false,false
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}/_targets,GET,IntentTargets,,false,false,false
+/apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}/_topology,GET,ResourceTopology,,false,false,false
 /apps/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/instances/{name}/_topology,POST,K8STopologyRequest,,false,false,false
 /workflows/v1/netbox.eda.nokia.com/v1alpha1/applyallocations,GET,com.nokia.eda.netbox.v1alpha1.ApplyAllocationList,,false,false,false
-/workflows/v1/netbox.eda.nokia.com/v1alpha1/applytopologies,GET,com.nokia.eda.netbox.v1alpha1.ApplyTopologyList,,false,false,false
 /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations,GET,com.nokia.eda.netbox.v1alpha1.ApplyAllocationList,apply_allocation_list,true,true,false
 /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations,POST,com.nokia.eda.netbox.v1alpha1.ApplyAllocation,apply_allocation,true,false,true
 /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations/{name},DELETE,,apply_allocation,true,false,true
@@ -38,13 +39,3 @@ Path,Method,Schema,Model Name,Supported,Datasource,Resource
 /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations/{name}/_input,PUT,WorkflowInputData,,false,false,false
 /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations/{name}/_logs,GET,,,false,false,false
 /workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applyallocations/{name}/_terminate,PUT,,,false,false,false
-/workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies,GET,com.nokia.eda.netbox.v1alpha1.ApplyTopologyList,apply_topology_list,true,true,false
-/workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies,POST,com.nokia.eda.netbox.v1alpha1.ApplyTopology,apply_topology,true,false,true
-/workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies/{name},DELETE,,apply_topology,true,false,true
-/workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies/{name},GET,com.nokia.eda.netbox.v1alpha1.ApplyTopology,apply_topology,true,true,true
-/workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies/{name}/_artifacts,GET,,,false,false,false
-/workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies/{name}/_artifacts/{artifact},GET,,,false,false,false
-/workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies/{name}/_input,GET,WorkflowGetInputsRespElem,,false,false,false
-/workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies/{name}/_input,PUT,WorkflowInputData,,false,false,false
-/workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies/{name}/_logs,GET,,,false,false,false
-/workflows/v1/netbox.eda.nokia.com/v1alpha1/namespaces/{namespace}/applytopologies/{name}/_terminate,PUT,,,false,false,false
